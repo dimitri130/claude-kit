@@ -46,7 +46,7 @@ $BootstrapAssets = @(
   @{ src='scripts/run-eod.ps1';            dst='scripts/run-eod.ps1' }
 )
 $ShipDocs  = @('QUICKSTART.md','GUIDE.md','INSTALL.md','LITE.md','README.md','PACKAGE-MANIFEST.md')
-$PluginRel = 'plugins/dimitri-claude-kit'
+$PluginRel = 'plugins/squidmode'
 
 # Personal-data leak markers (specific, low false-positive). Any hit HARD-FAILS the build.
 $LeakPatterns = @('dmeimeteas','tjyoptions','pumacap','PumaCap',
@@ -57,7 +57,7 @@ $LeakPatterns = @('dmeimeteas','tjyoptions','pumacap','PumaCap',
 # REQUIRES the concrete repo path, and recipients already have this URL from `marketplace add`.
 # Stripped from each file's text before scanning, so a stray 'dmeimeteas'/'pumacap' elsewhere still
 # hard-fails. Keep this list to genuinely-public identifiers only.
-$LeakAllowList = @('dmeimeteas-pumacap/claude-squidmode')
+$LeakAllowList = @('dimitri130/claude-kit')
 
 $Stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
 $Stage = Join-Path $env:TEMP "claude-kit-build-$Stamp"

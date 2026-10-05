@@ -1,7 +1,7 @@
 #Requires -Version 5.1
 <#
 .SYNOPSIS
-  Recipient-side bootstrap for dimitri-claude-kit. Installs what a Claude Code plugin CANNOT carry:
+  Recipient-side bootstrap for squidmode. Installs what a Claude Code plugin CANNOT carry:
   statusLine, user settings (model/theme/effortLevel), external-plugin registration, the
   continuity-file scaffold, and (optionally) the scheduled-/eod task.
 
@@ -278,12 +278,12 @@ function Install-StatusLine { param([string] $SettingsTarget)
 
 # ---------------------------------------------------------------------------
 # /theme user command -- a USER-level ~/.claude/commands/theme.md makes BARE `/theme` run the
-# custom statusline picker. The plugin only provides the namespaced /dimitri-claude-kit:theme;
+# custom statusline picker. The plugin only provides the namespaced /squidmode:theme;
 # the bare command needs the user-level copy. (Live install missed this because the user commands
 # dir shipped empty.) Merge-safe: install only if absent; never overwrite a recipient's own.
 # ---------------------------------------------------------------------------
 function Install-ThemeCommand {
-  $src = Join-Path $PkgRoot 'plugins/dimitri-claude-kit/commands/theme.md'
+  $src = Join-Path $PkgRoot 'plugins/squidmode/commands/theme.md'
   if (-not (Test-Path $src)) { return }
   $cmdDir = Join-Path $ClaudeDir 'commands'
   if (-not (Test-Path $cmdDir)) { New-Item -ItemType Directory -Path $cmdDir -Force | Out-Null }
@@ -317,7 +317,7 @@ function Install-ThemeCommand {
 # open no longer blocks anything; (3) the whole thing is non-fatal -- a failure reports and lets the
 # install finish, receipt included.
 function Install-UsageGuide {
-  $src = Join-Path $PkgRoot 'plugins/dimitri-claude-kit/guide'
+  $src = Join-Path $PkgRoot 'plugins/squidmode/guide'
   if (-not (Test-Path $src)) { $script:Report.Add("[SKIPPED] usage guide not present in the package."); return }
   $dst = Join-Path $ClaudeDir 'guide'
   $fresh = -not (Test-Path $dst)
@@ -496,7 +496,7 @@ function Install-EodScheduleOptional {
 # Orchestration.
 # ---------------------------------------------------------------------------
 function Invoke-Bootstrap {
-  Write-Host "== dimitri-claude-kit bootstrap (v$KitVersion) ->  $ClaudeDir =="
+  Write-Host "== squidmode bootstrap (v$KitVersion) ->  $ClaudeDir =="
   $settingsTarget = Join-Path $ClaudeDir 'settings.json'
   $tmplSettings   = Join-Path $PkgRoot 'bootstrap/settings.template.json'
   $tmplClaude     = Join-Path $PkgRoot 'bootstrap/CLAUDE.template.md'

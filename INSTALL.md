@@ -30,7 +30,7 @@ Reference: https://code.claude.com/docs/en/setup
 ## Install
 ```
 claude plugin marketplace add <kit-repo-url>
-claude plugin install dimitri-claude-kit
+claude plugin install squidmode
 powershell -NoProfile -ExecutionPolicy Bypass -File .\bootstrap\install.ps1
 ```
 Then restart Claude Code.
@@ -54,8 +54,8 @@ It prints a summary of everything it skipped or kept.
 
 ## Update
 ```
-claude plugin marketplace update claude-squidmode            # refresh the git marketplace checkout
-claude plugin update dimitri-claude-kit@claude-squidmode     # qualified <plugin>@<marketplace> form
+claude plugin marketplace update squidmode-kit            # refresh the git marketplace checkout
+claude plugin update squidmode@squidmode-kit     # qualified <plugin>@<marketplace> form
 git config --global --add safe.directory <clone-path>        # only if the pull hits dubious-ownership
 git -C <clone-path> pull                                     # get install.ps1 for the new version
 powershell -NoProfile -ExecutionPolicy Bypass -File .\bootstrap\install.ps1 -NonInteractive
@@ -64,7 +64,7 @@ Then restart Claude Code.
 
 Notes learned from live upgrades:
 - `claude plugin update` needs the **qualified** `<plugin>@<marketplace>` arg. A bare `claude plugin update`
-  errors "requires <plugin>", and the bare name `dimitri-claude-kit` errors "Plugin not found".
+  errors "requires <plugin>", and the bare name `squidmode` errors "Plugin not found".
 - Re-run the bootstrap with **`-NonInteractive`**. Plain `install.ps1` hits a `Read-Host` prompt (optional
   enhancement plugins) that blocks forever in a non-interactive shell; `-NonInteractive` skips it and still
   installs the deps merge-safely.
@@ -77,7 +77,7 @@ updated the plugin without re-running `install.ps1` -- just re-run it.
 ## Uninstall (v1: manual, receipt-driven)
 An automated `Uninstall-ClaudeKit` is planned for v2. For now, removal is straightforward because the
 install recorded everything:
-1. `claude plugin uninstall dimitri-claude-kit` (+ `claude plugin marketplace remove ...` if desired).
+1. `claude plugin uninstall squidmode` (+ `claude plugin marketplace remove ...` if desired).
 2. **Restore overwritten files** from the newest `~/.claude/.kit-backups/<stamp>/` (settings.json,
    CLAUDE.md, statusline.ps1, themes/ -- whatever is present there).
 3. **Reverse the additions** listed in `~/.claude/.kit-install-receipt.json`:

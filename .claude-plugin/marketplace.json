@@ -1,12 +1,12 @@
 {
-  "name": "claude-squidmode",
+  "name": "squidmode-kit",
   "owner": {
     "name": "Dimitri"
   },
   "plugins": [
     {
-      "name": "dimitri-claude-kit",
-      "source": "./plugins/dimitri-claude-kit",
+      "name": "squidmode",
+      "source": "./plugins/squidmode",
       "description": "Continuity + productivity setup for Claude Code: thread-based logging and catchup, the two-door planning model (goals areas + today day-plan), day synthesis (eod), continuity janitor (reconcile/deepclean), documentation generators, and skill-builder."
     }
   ]

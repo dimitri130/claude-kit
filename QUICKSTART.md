@@ -38,7 +38,7 @@ Then continue below. Full platform/version details: https://code.claude.com/docs
 Prerequisite: **Git for Windows** (the hooks run under Git Bash) + Claude Code (see Step 0).
 ```
 claude plugin marketplace add <kit-repo-url>
-claude plugin install dimitri-claude-kit
+claude plugin install squidmode
 powershell -NoProfile -ExecutionPolicy Bypass -File .\bootstrap\install.ps1
 ```
 Restart Claude Code so the hooks + statusline load. Full options + update/uninstall: **INSTALL.md**.

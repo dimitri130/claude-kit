@@ -24,7 +24,7 @@ macOS/Linux. You just skip the PowerShell bootstrap.
 
 ```
 claude plugin marketplace add <kit-repo-url>
-claude plugin install dimitri-claude-kit
+claude plugin install squidmode
 ```
 
 Restart Claude Code. That's it -- no `install.ps1`.
@@ -57,7 +57,7 @@ skills carry over** (see the table). The continuity loop (`/log`, `/catchup`, `/
 
 **Steps:**
 1. Pick the portable skills from the table below. Each lives at
-   `plugins/dimitri-claude-kit/skills/<name>/` in this repo.
+   `plugins/squidmode/skills/<name>/` in this repo.
 2. For each one, ZIP the skill folder **with the folder itself as the ZIP root** (not a
    parent wrapper). The folder's `SKILL.md` is the entry point.
 3. In *Customize > Skills*, choose "Create a new skill" and upload the ZIP, or paste the

@@ -1,4 +1,4 @@
-# dimitri-claude-kit
+# squidmode
 
 A portable export of a Claude Code continuity + productivity setup: thread-based logging
 (`/log`, `/catchup`, `/catchupall`), daily orientation (`/eod`, `/eow`, `/goals`), planning
@@ -17,7 +17,7 @@ Windows-oriented (the bootstrap is PowerShell + Task Scheduler). The plugin half
 ```
 .
 ├── .claude-plugin/marketplace.json        marketplace listing (this repo IS the marketplace)
-├── plugins/dimitri-claude-kit/            the plugin (additive, namespaced, safe to install)
+├── plugins/squidmode/            the plugin (additive, namespaced, safe to install)
 │   ├── .claude-plugin/plugin.json
 │   ├── hooks/hooks.json                   SessionStart (briefing) + UserPromptSubmit (expand)
 │   ├── skills/  commands/  scripts/       14 skills + theme command, synced by build-package.ps1
@@ -51,7 +51,7 @@ A Claude Code plugin **cannot** carry `statusLine`, user settings (`model`/`them
 
 ```
 claude plugin marketplace add <this-repo-url>
-claude plugin install dimitri-claude-kit
+claude plugin install squidmode
 powershell -NoProfile -ExecutionPolicy Bypass -File .\bootstrap\install.ps1
 ```
 
